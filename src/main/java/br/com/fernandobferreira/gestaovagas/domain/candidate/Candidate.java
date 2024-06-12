@@ -1,6 +1,6 @@
 package br.com.fernandobferreira.gestaovagas.domain.candidate;
 
-import br.com.fernandobferreira.gestaovagas.infrastructure.data.CandidateEntity;
+import br.com.fernandobferreira.gestaovagas.infrastructure.data.candidate.CandidateEntity;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

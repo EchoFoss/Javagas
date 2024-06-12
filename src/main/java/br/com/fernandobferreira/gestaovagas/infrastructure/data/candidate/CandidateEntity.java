@@ -1,4 +1,4 @@
-package br.com.fernandobferreira.gestaovagas.infrastructure.data;
+package br.com.fernandobferreira.gestaovagas.infrastructure.data.candidate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

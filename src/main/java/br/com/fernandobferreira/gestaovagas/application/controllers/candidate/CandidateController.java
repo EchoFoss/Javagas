@@ -1,9 +1,7 @@
 package br.com.fernandobferreira.gestaovagas.application.controllers.candidate;
 
 import br.com.fernandobferreira.gestaovagas.application.exceptions.UsernameFoundException;
-import br.com.fernandobferreira.gestaovagas.application.repositories.candidate.CandidateRepository;
 import br.com.fernandobferreira.gestaovagas.domain.candidate.Candidate;
-import br.com.fernandobferreira.gestaovagas.infrastructure.data.CandidateEntity;
 import br.com.fernandobferreira.gestaovagas.useCases.candidate.CreateCandidateUseCase;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
