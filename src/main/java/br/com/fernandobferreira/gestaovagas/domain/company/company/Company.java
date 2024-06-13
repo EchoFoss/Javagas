@@ -1,4 +1,4 @@
-package br.com.fernandobferreira.gestaovagas.domain.company.entities.company;
+package br.com.fernandobferreira.gestaovagas.domain.company.company;
 
 import br.com.fernandobferreira.gestaovagas.infrastructure.data.company.company.CompanyEntity;
 import jakarta.annotation.Nullable;
@@ -20,6 +20,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Company {
+
+
     private String name;
 
     @Pattern(regexp = "\\S+", message = "O campo [username] não deve conter espaços")
@@ -47,7 +49,7 @@ public class Company {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    CompanyEntity toJpaEntity() {
+    public CompanyEntity toJpaEntity() {
         return CompanyEntity
             .builder()
             .name(this.name)

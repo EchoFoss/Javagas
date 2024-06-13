@@ -50,9 +50,9 @@ public class CompanyEntity {
     private String website;
 
     @Length(max = 255, message = "O tamanho máximo da decrição da empresa é de (255) caracteres")
+    @NotBlank
     private String description;
 
     @CreationTimestamp
-    @NotNull
     private LocalDateTime createdAt;
 }

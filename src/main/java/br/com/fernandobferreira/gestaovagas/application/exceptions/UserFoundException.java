@@ -1,8 +1,8 @@
 package br.com.fernandobferreira.gestaovagas.application.exceptions;
 
-public class UsernameFoundException extends RuntimeException {
+public class UserFoundException extends RuntimeException {
 
-    public UsernameFoundException() {
+    public UserFoundException() {
         super("Usuário já existe");
     }
 }

@@ -1,7 +1,7 @@
-package br.com.fernandobferreira.gestaovagas.useCases.candidate;
+package br.com.fernandobferreira.gestaovagas.infrastructure.data.useCases.candidate;
 
-import br.com.fernandobferreira.gestaovagas.application.exceptions.UsernameFoundException;
-import br.com.fernandobferreira.gestaovagas.application.repositories.candidate.CandidateRepository;
+import br.com.fernandobferreira.gestaovagas.application.exceptions.UserFoundException;
+import br.com.fernandobferreira.gestaovagas.infrastructure.data.repositories.candidate.CandidateRepository;
 import br.com.fernandobferreira.gestaovagas.domain.candidate.Candidate;
 import br.com.fernandobferreira.gestaovagas.infrastructure.data.candidate.CandidateEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class CreateCandidateUseCase {
                 candidate.getEmail()
             )
             .ifPresent((user) -> {
-                throw new UsernameFoundException();
+                throw new UserFoundException();
             });
 
         var jpaEntity = candidate.toJPA();

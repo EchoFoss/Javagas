@@ -2,6 +2,7 @@ package br.com.fernandobferreira.gestaovagas.infrastructure.data.company.job;
 
 import br.com.fernandobferreira.gestaovagas.infrastructure.data.company.company.CompanyEntity;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,6 +33,7 @@ public class JobEntity {
     private String benefits;
 
     @Length(max = 20, message = "A senioridade da vaga deve ter no máximo 20 caracteres")
+    @NotBlank(message = "Esse campo é obrigatório")
     private String level;
 
     @CreationTimestamp
@@ -39,6 +41,9 @@ public class JobEntity {
 
 
     @ManyToOne()
-    @JoinColumn(name = "company_id")
+    @JoinColumn(name = "company_id", insertable = false, updatable = false)
     private CompanyEntity companyEntity;
+
+    @Column(name = "company_id")
+    private UUID companyId;
 }

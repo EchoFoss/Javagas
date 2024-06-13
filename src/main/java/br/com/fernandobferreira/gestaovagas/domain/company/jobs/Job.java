@@ -1,9 +1,10 @@
-package br.com.fernandobferreira.gestaovagas.domain.company.entities.jobs;
+package br.com.fernandobferreira.gestaovagas.domain.company.jobs;
 
 import br.com.fernandobferreira.gestaovagas.infrastructure.data.company.job.JobEntity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
@@ -23,12 +24,10 @@ public class Job {
     private String benefits;
 
     @Length(max = 20, message = "A senioridade da vaga deve ter no máximo 20 caracteres")
+    @NotBlank(message = "Esse campo é obrigatório")
     private String level;
 
-    @CreationTimestamp
-    private LocalDateTime createdAt;
-
-    private JobEntity toJpaEntity() {
+    public JobEntity toJpaEntity() {
         return JobEntity
             .builder()
             .name(this.name)
