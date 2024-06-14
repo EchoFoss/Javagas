@@ -1,7 +1,6 @@
 package br.com.fernandobferreira.gestaovagas.application.controllers.company;
 
 import br.com.fernandobferreira.gestaovagas.domain.company.jobs.DTOs.CreateJobDto;
-import br.com.fernandobferreira.gestaovagas.domain.company.jobs.Job;
 import br.com.fernandobferreira.gestaovagas.infrastructure.data.useCases.company.job.CreateJobUseCase;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/job")
+@RequestMapping("/job")
 public class JobController {
 
     @Autowired

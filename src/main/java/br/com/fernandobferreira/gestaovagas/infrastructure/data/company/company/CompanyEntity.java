@@ -41,7 +41,7 @@ public class CompanyEntity {
     @NotNull
     private String email;
 
-    @Length(min = 10, max = 25, message = "A senha deve conter entre (10) e (25) caracteres")
+    @Length(min = 10, max = 100, message = "A senha deve conter entre (10) e (25) caracteres")
     @NotBlank
     @NotNull
     private String password;

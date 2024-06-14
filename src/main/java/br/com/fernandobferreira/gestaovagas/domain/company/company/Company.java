@@ -46,19 +46,15 @@ public class Company {
     @Length(max = 255, message = "O tamanho máximo da decrição da empresa é de (255) caracteres")
     private String description;
 
-    @CreationTimestamp
-    private LocalDateTime createdAt;
-
     public CompanyEntity toJpaEntity() {
         return CompanyEntity
             .builder()
-            .name(this.name)
-            .username(this.email)
-            .email(this.email)
-            .password(this.password)
-            .website(this.website)
-            .description(this.description)
-            .createdAt(this.createdAt)
+            .name(this.getName())
+            .username(this.getUsername())
+            .email(this.getEmail())
+            .password(this.getPassword())
+            .website(this.getWebsite())
+            .description(this.getDescription())
             .build();
     }
 }

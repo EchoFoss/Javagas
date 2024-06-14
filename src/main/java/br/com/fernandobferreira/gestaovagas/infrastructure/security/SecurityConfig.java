@@ -1,9 +1,12 @@
 package br.com.fernandobferreira.gestaovagas.infrastructure.security;
 
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -11,15 +14,22 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
-            .authorizeHttpRequests(auth -> {
-                auth
-                    .requestMatchers("/api/v1/candidate/").permitAll()
-                    .requestMatchers("/api/v1/company/").permitAll();
+        http.csrf(AbstractHttpConfigurer::disable);
 
-                auth
-                    .anyRequest().authenticated();
-            });
+        http.authorizeHttpRequests(req -> {
+            req.requestMatchers(
+                "/company/",
+                "/candidate/",
+                "/auth/company/"
+            ).permitAll();
+            req.anyRequest().authenticated();
+        });
+
         return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }
